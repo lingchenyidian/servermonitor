@@ -1,5 +1,5 @@
-import com.tsgz.server.parser.YarnUIParser;
-import com.tsgz.common.util.ResourceUtil;
+import com.tsgz.monitor.server.parser.YarnUIParser;
+import com.tsgz.monitor.common.util.ResourceUtil;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 

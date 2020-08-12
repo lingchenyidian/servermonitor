@@ -1,11 +1,12 @@
-package com.tsgz.server;
+package com.tsgz.monitor.server;
 
-import com.tsgz.common.entity.AbstractAppInfo;
+import com.tsgz.monitor.common.entity.AbstractAppInfo;
 
 import java.beans.PropertyDescriptor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
@@ -37,6 +38,9 @@ public class MonitorManager {
         apps.put(appInfo.getId(), appInfo);
     }
 
+    public ConcurrentHashMap<String, AbstractAppInfo> getApps() {
+        return apps;
+    }
 
     public void print() {
         System.out.println(Thread.currentThread().getName());
@@ -107,6 +111,8 @@ public class MonitorManager {
             getAllFieldName(clazz.getSuperclass(), fieldNames);
             Field[] fields = clazz.getDeclaredFields();
             for (Field field : fields) {
+                if ("instance".equals(field.getName()))
+                    continue;
                 fieldNames.add(field.getName());
             }
         }
@@ -124,6 +130,8 @@ public class MonitorManager {
             getAllFieldValue(appInfo, clazz.getSuperclass(), fieldValues);
             Field[] fields = clazz.getDeclaredFields();
             for (Field field : fields) {
+                if ("instance".equals(field.getName()))
+                    continue;
                 try {
                     PropertyDescriptor pd = new PropertyDescriptor(field.getName(), clazz);
                     Method readMethod = pd.getReadMethod();
@@ -131,6 +139,8 @@ public class MonitorManager {
                     Object invoke = readMethod.invoke(appInfo);
                     fieldValues.add(invoke.toString());
 //                    fieldNames.add(field.getName());
+                } catch (NullPointerException e) {
+                    System.out.println(appInfo);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

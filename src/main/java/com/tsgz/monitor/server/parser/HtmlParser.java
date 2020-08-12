@@ -1,6 +1,6 @@
-package com.tsgz.server.parser;
+package com.tsgz.monitor.server.parser;
 
-import com.tsgz.common.entity.AbstractAppInfo;
+import com.tsgz.monitor.common.entity.AbstractAppInfo;
 import org.jsoup.nodes.Document;
 
 /**

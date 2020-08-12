@@ -1,4 +1,4 @@
-package com.tsgz.common.entity;
+package com.tsgz.monitor.common.entity;
 
 import java.util.Date;
 

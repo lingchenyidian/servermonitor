@@ -1,4 +1,4 @@
-package com.tsgz.common.entity;
+package com.tsgz.monitor.common.entity;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -14,6 +14,8 @@ public abstract class AbstractAppInfo implements Serializable {
     protected String id;
     protected String name;
     protected Date updateTime;
+    // 丢失的心跳数
+    protected int loseHeartbeatNum;
 
     public String getName() {
         return name;
@@ -37,5 +39,23 @@ public abstract class AbstractAppInfo implements Serializable {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
+    }
+
+    public int getLoseHeartbeatNum() {
+        return loseHeartbeatNum;
+    }
+
+    public void setLoseHeartbeatNum(int loseHeartbeatNum) {
+        this.loseHeartbeatNum = loseHeartbeatNum;
+    }
+
+    @Override
+    public String toString() {
+        return "AbstractAppInfo{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", updateTime=" + updateTime +
+                ", loseHeartbeatNum=" + loseHeartbeatNum +
+                '}';
     }
 }

@@ -1,4 +1,4 @@
-package com.tsgz.common.util;
+package com.tsgz.monitor.common.util;
 
 /**
  * @Author: liqin

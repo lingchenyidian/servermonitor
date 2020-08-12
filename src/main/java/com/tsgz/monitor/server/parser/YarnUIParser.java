@@ -1,8 +1,8 @@
-package com.tsgz.server.parser;
+package com.tsgz.monitor.server.parser;
 
-import com.tsgz.common.entity.SparkOnYarnAppInfo;
-import com.tsgz.common.util.BracketUtil;
-import com.tsgz.server.MonitorManager;
+import com.tsgz.monitor.common.entity.SparkOnYarnAppInfo;
+import com.tsgz.monitor.common.util.BracketUtil;
+import com.tsgz.monitor.server.MonitorManager;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;

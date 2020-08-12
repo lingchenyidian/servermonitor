@@ -1,4 +1,4 @@
-package com.tsgz.server.parser;
+package com.tsgz.monitor.server.parser;
 
 /**
  * @Author: liqin

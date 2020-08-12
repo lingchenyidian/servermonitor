@@ -1,6 +1,4 @@
-package com.tsgz.server.parser;
-
-import com.tsgz.common.entity.AbstractAppInfo;
+package com.tsgz.monitor.server.parser;
 
 /**
  * @Author: liqin
